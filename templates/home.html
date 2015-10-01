@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 新 Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <!--button-->
+    <link href="//cdn.bootcss.com/Buttons/2.0.0/css/buttons.min.css" rel="stylesheet">
+    <!--font awesome-->
+    <link href="//cdn.bootcss.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
+    <!--my style-->
+    {% load staticfiles %}
+    <link rel="stylesheet" href="http://7xlb70.com1.z0.glb.clouddn.com/staticcolorful.css"/>
+    <!--引入代码高亮样式-->
+    <link rel="stylesheet" href="http://7xlb70.com1.z0.glb.clouddn.com/staticstyle.css"/>
+    <link rel="stylesheet" href="http://7xlb70.com1.z0.glb.clouddn.com/staticvs.css"/>
+    <title>{% block title %}{% endblock %}</title>
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+
+        </div>
+        <div class="row">
+            <div class="col-md-3">
+
+            </div>
+            <div class="col-md-6">
+
+            </div>
+            <div class="col-md-3">
+
+            </div>
+        </div>
+        <div class="row">
+
+        </div>
+    </div>
+    <!--引入JavaScript文件-->
+    <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+    <script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+    <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+    <script src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <!--button-->
+    <script src="//cdn.bootcss.com/Buttons/2.0.0/js/buttons.min.js"></script>
+    <!--my JavaScript-->
+    <script src="{% static 'blog/JavaScript/myjs.js' %}"></script>
+</body>
+</html>

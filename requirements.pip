@@ -1,0 +1,6 @@
+Django==1.8.4
+django-debug-toolbar
+MYSQL-python
+markdown
+django-markdown-deux==1.0.5
+pip install django-suit==0.2.13

@@ -1,0 +1,51 @@
+
+body{
+    font-family: Helvetica, sans-serif;
+    font-size: 12px;
+}
+a{
+    color: dimgrey;
+}
+a:hover{
+    color: lightskyblue;
+    text-decoration: none;
+}
+#detail{
+    margin-top: -20px;
+    margin-bottom: -2px;
+    background: url("http://7xlb70.com1.z0.glb.clouddn.com/staticbg1.png");
+}
+#header{
+    margin-left: 38%;
+   /* margin-right: 30%;*/
+}
+#footer{
+    background: #F5F5F5;
+    border-top: solid 1px #F5F5F5;
+}
+#footer h5{
+    text-align: center;
+}
+
+/*detail:文章详情页style*/
+.panel{
+    padding-left: 10px;
+    padding-right: 20px;
+}
+#contents h2,h6{
+    text-align: center;
+}
+#contents p{
+    margin-right: -14px;
+    text-align: justify;
+    letter-spacing: 2px;
+    font-size: 14px;
+    line-height: 26px;
+}
+/*category*/
+#category_panel_row{
+    margin-left: 12%;
+}
+#category_panel_p{
+    margin-left: 12%;
+}

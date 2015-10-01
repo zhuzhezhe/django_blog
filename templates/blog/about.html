@@ -1,0 +1,42 @@
+{% extends 'blog/base.html' %}
+{% block title %}
+    关于我
+{% endblock %}
+{% block content %}
+    <div class="panel panel-default">
+      <div class="panel-body">
+          <div class="row">
+              <div class="col-md-12">
+                  <h3 style="text-align: center">关于我</h3>
+                  <p>正在想该如何定义自己中。。。</p>
+              </div>
+          </div>
+          <div class="row">
+              <div class="col-md-12">
+                  <h3 style="text-align: center">留言板</h3>
+                  <!-- 多说评论框 start -->
+                    <div class="ds-thread"
+                         data-thread-key=""
+                         data-title="aboutme"
+                         data-url="{% url 'blog:about' %}">
+
+                    </div>
+                <!-- 多说评论框 end -->
+                <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+                <script type="text/javascript">
+                var duoshuoQuery = {short_name:"djangoblog"};
+                    (function() {
+                        var ds = document.createElement('script');
+                        ds.type = 'text/javascript';ds.async = true;
+                        ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+                        ds.charset = 'UTF-8';
+                        (document.getElementsByTagName('head')[0]
+                         || document.getElementsByTagName('body')[0]).appendChild(ds);
+                    })();
+                    </script>
+                <!-- 多说公共JS代码 end -->
+                          </div>
+          </div>
+      </div>
+    </div>
+{% endblock %}

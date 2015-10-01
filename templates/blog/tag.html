@@ -1,0 +1,15 @@
+{% extends 'blog/base.html' %}
+{% block title %}
+    标签
+{% endblock %}
+{% block content %}
+    <div class="panel panel-default">
+      <div class="panel-body">
+        {% for tag in tags %}
+            <button class="button button-rounded"><a href="{% url 'blog:tag_list' tag.name %}">{{ tag.name }}</a></button>
+            {% empty %}
+                <p>Sorry, no athletes in this list.</p>
+        {% endfor %}
+      </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,41 @@
+{% extends 'blog/base.html' %}
+{% include 'index.html' %}
+{% block title %}
+    分类
+{% endblock %}
+{% block content %}
+    {% if categories %}
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <br><br><br><br><br><br>
+                <div class="row" id="category_panel_row">
+                    <div class="col-md-4">
+                        <button class="button button-primary button-box button-giant">
+                            <i class="fa fa-code"></i>
+                        </button>
+                    </div>
+                    <div class="col-md-4">
+                        <button class="button button-action button-box button-giant">
+                            <i class="fa fa-book"></i>
+                        </button>
+                    </div>
+                    <div class="col-md-4">
+                        <button class="button button-highlight button-box button-giant">
+                            <i class="fa fa-pencil"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="row" id="category_panel_p">
+                {% for category in categories %}
+                    <div class="col-md-4">
+                        <p>
+                            <a href="{% url 'blog:cate_list' category.name %}">{{ category.name }}</a>
+                        </p>
+                    </div>
+                {% endfor %}
+                </div>
+                 <br><br><br><br><br><br>
+            </div>
+        </div>
+    {% endif %}
+{% endblock %}

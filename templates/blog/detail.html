@@ -1,0 +1,111 @@
+{% extends 'blog/base.html' %}
+{% load mark %}
+{% block title %}{{ title }}{% endblock %}
+{% block content %}
+    {% if details %}
+    <!--detail-->
+        <div class="panel panel-default">
+             <div class="panel-body">
+                 {% for detail in details %}
+                 <div class="row">
+                     <div class="col-md-12">
+                         <ul class="nav navbar-nav navbar-left">
+                             <i class="fa fa-user"></i>
+                            {{ detail.author }}
+                        </ul>
+                        <ul class="nav navbar-nav navbar-right">
+                                {{ detail.time }}
+                            <i class="fa fa-calendar"></i>
+                        </ul>
+                     </div>
+                 </div>
+                 <div class="row">
+                     <div class="col-md-12" id="contents">
+                         <br/>
+                         <h2 class="panel-title">{{ detail.title }}</h2>
+                         <br/>
+                         <p>{{ detail.content|my_markdown }}</p><br/>
+                        <h6><strong>“采用<a rel="license" href="http://creativecommons.org/licenses/by/3.0/cn/">
+                         知识共享署名 3.0 中国大陆许可协议</a>进行许可，转载请注明出处”</strong></h6>
+                     </div>
+                 </div>
+                 <div class="row">
+                     <div class="col-md-12">
+                         <ul class="nav navbar-nav navbar-left">
+                             <i class="fa fa-archive"></i>
+                             <a href="{% url 'blog:cate_list' detail.category %}">{{ detail.category }}</a>
+                        </ul>
+                        <ul class="nav navbar-nav navbar-right">
+                            <a href="{% url 'blog:tag_list' detail.tag %}">{{ detail.tag }}</a>
+                            <i class="fa fa-tags"></i>
+                        </ul>
+                     </div>
+                 </div>
+                 {% endfor %}
+             </div>
+        </div>
+    {% endif %}
+    <!--上一页下一页-->
+    <nav>
+        <ul class="pager">
+                {% for detail in details %}
+                    {% if detail.id > 1 %}
+                        {% for previou in previous %}
+                            <li class="previous">
+                                <a href="{% url 'blog:detail' previou.title %}">
+                                    <span aria-hidden="true">&larr;</span>上一篇
+                                </a>
+                            </li>
+                        {% endfor %}
+                    {% else %}
+                        <li class="previous disabled">
+                        <a href="#">
+                            <span aria-hidden="true">&larr;</span>上一篇
+                        </a>
+                        </li>
+                    {% endif %}
+                {% endfor %}
+
+
+                {% for next in nexts %}
+                    {% if next.id == NULL %}
+                        <li class="next disabled">
+                            <a href="#">下一篇
+                            <span aria-hidden="true">&rarr;</span>
+                        </a>
+                        </li>
+                    {% else %}
+                        <li class="next">
+                            <a href="{% url 'blog:detail' next.title %}">下一篇
+                            <span aria-hidden="true">&rarr;</span>
+                        </a>
+                        </li>
+                    {% endif %}
+                {% endfor %}
+
+        </ul>
+    </nav>
+    <!-- 多说评论框 start -->
+    {% for detail in details %}
+        <div class="ds-thread"
+             data-thread-key="{{ detail.id }}"
+             data-title="{{ detail.title }}"
+             data-url="{% url 'blog:detail' detail.title %}">
+
+        </div>
+    {% endfor %}
+    <!-- 多说评论框 end -->
+    <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+    <script type="text/javascript">
+    var duoshuoQuery = {short_name:"djangoblog"};
+        (function() {
+            var ds = document.createElement('script');
+            ds.type = 'text/javascript';ds.async = true;
+            ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+            ds.charset = 'UTF-8';
+            (document.getElementsByTagName('head')[0]
+             || document.getElementsByTagName('body')[0]).appendChild(ds);
+        })();
+        </script>
+    <!-- 多说公共JS代码 end -->
+{% endblock %}
